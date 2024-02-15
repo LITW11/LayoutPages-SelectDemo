@@ -1,0 +1,19 @@
+﻿@model EmployeeVideModel
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <select name="employeeId" class="form-select">
+            @foreach(var employee in Model.Employees)
+            {
+                if (employee.BirthDate.HasValue)
+                {
+                    <option value="@employee.Id">@employee.FirstName @employee.LastName - @employee.BirthDate.Value.ToShortDateString()</option>
+                }
+                else
+                {
+                    <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+                }
+            }
+        </select>
+    </div>
+</div>

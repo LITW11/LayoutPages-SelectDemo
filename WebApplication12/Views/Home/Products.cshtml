@@ -1,0 +1,32 @@
+﻿@model ProductsViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.Name</td>
+                        @if (product.UnitPrice >= 75)
+                        {
+                            <td class="table-danger">@product.UnitPrice.ToString("C")</td>
+                        }
+                        else
+                        {
+                            <td>@product.UnitPrice.ToString("C")</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
